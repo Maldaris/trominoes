@@ -10,6 +10,9 @@ class RGB_Color {
   RGB_Color(int r, int g, int b){
     this.r = r; this.g = g; this.b = b;
   }
+  String toString(){
+    return "" + r + "," + g +"," +b;
+  }
 
 }
 int randInRange(int min, int max){
@@ -53,7 +56,7 @@ boolean complete(int[][] g){
     for(int x = 0; x < g[y].length; x++){
       if(g[y][x] == 0)
         empties++;
-      if(empties >= 3)
+      if(empties > 1)
         return false;
     }
   }
@@ -78,7 +81,7 @@ void rec(int[][] g, int sz, Coord top){
     for(int x = 0; x < sz; x++){
       for(int z = 0; z < sz; z++){
         if(g[top.x+x][top.y+z] == 0){
-           g[top.x+x][top.y+z] = indexMapping.size()-1;
+           g[top.x+x][top.y+z] = indexMapping.size()+1;
            if(iter < 3){
              toAdd[iter] = new Coord(top.x+x, top.y+z);
              iter++;
@@ -86,7 +89,7 @@ void rec(int[][] g, int sz, Coord top){
         }
       }
     }
-    indexMapping.put(indexMapping.size()+1, new Tromino(toAdd));
+    indexMapping.put(indexMapping.size()+1;, new Tromino(toAdd));
   } else {
     Coord missing = new Coord(top.x, top.y);
     for(int x= top.x; x < top.x + sz; x++){
@@ -102,13 +105,13 @@ void rec(int[][] g, int sz, Coord top){
       rec(g, sz/2, top);
      
       newTrom[0] = new Coord(top.x+sz/2,top.y+sz/2-1);
-      g[top.x+sz/2][top.y+sz/2-1] = indexMapping.size()-1;
+      g[top.x+sz/2][top.y+sz/2-1] = indexMapping.size()+1;
       newTrom[1] = new Coord(top.x+sz/2,top.y+sz/2);
-      g[top.x+sz/2][top.y+sz/2] = indexMapping.size()-1;
+      g[top.x+sz/2][top.y+sz/2] = indexMapping.size()+1;
       newTrom[2] = new Coord(top.x+sz/2-1,top.y+sz/2);
-      g[top.x+sz/2-1][top.y+sz/2] = indexMapping.size()-1;
+      g[top.x+sz/2-1][top.y+sz/2] = indexMapping.size()+1;
       
-      indexMapping.put(indexMapping.size()+1, new Tromino(newTrom));
+      indexMapping.put(indexMapping.size()+1;, new Tromino(newTrom));
       
       rec(g, sz/2, new Coord(top.x, top.y+sz/2));
       rec(g, sz/2, new Coord(top.x+sz/2, top.y));
@@ -117,12 +120,12 @@ void rec(int[][] g, int sz, Coord top){
       rec(g, sz/2, new Coord(top.x, top.y+sz/2));
       
       newTrom[0] = new Coord(top.x+sz/2,top.y+sz/2-1);
-      g[top.x+sz/2][top.y+sz/2-1] = indexMapping.size()-1;
+      g[top.x+sz/2][top.y+sz/2-1] = indexMapping.size()+1;
       newTrom[1] = new Coord(top.x+sz/2,top.y+sz/2);
-      g[top.x+sz/2][top.y+sz/2] = indexMapping.size()-1;
+      g[top.x+sz/2][top.y+sz/2] = indexMapping.size()+1;
       newTrom[2] = new Coord(top.x+sz/2-1,top.y+sz/2-1);
-      g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()-1;
-      indexMapping.put(indexMapping.size()+1, new Tromino(newTrom));
+      g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()+1;
+      indexMapping.put(indexMapping.size()+1;, new Tromino(newTrom));
       
       rec(g, sz/2, top);
       rec(g, sz/2, new Coord(top.x+sz/2, top.y));
@@ -131,12 +134,12 @@ void rec(int[][] g, int sz, Coord top){
       rec(g, sz/2, new Coord(top.x+sz/2, top.y));
       
       newTrom[0] = new Coord(top.x+sz/2-1,top.y+sz/2);
-      g[top.x+sz/2-1][top.y+sz/2] = indexMapping.size()-1;
+      g[top.x+sz/2-1][top.y+sz/2] = indexMapping.size()+1;
       newTrom[1] = new Coord(top.x+sz/2,top.y+sz/2);
-      g[top.x+sz/2][top.y+sz/2] = indexMapping.size()-1;
+      g[top.x+sz/2][top.y+sz/2] = indexMapping.size()+1;
       newTrom[2] = new Coord(top.x+sz/2-1,top.y+sz/2-1);
-      g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()-1;
-      indexMapping.put(indexMapping.size()+1, new Tromino(newTrom));
+      g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()+1;
+      indexMapping.put(indexMapping.size()+1;, new Tromino(newTrom));
       
       rec(g, sz/2, top);
       rec(g, sz/2, new Coord(top.x, top.y+sz/2));
@@ -145,12 +148,12 @@ void rec(int[][] g, int sz, Coord top){
       rec(g, sz/2, new Coord(top.x+sz/2, top.y+sz/2));
       //checked
       newTrom[0] = new Coord(top.x+sz/2-1,top.y+sz/2);
-      g[top.x+sz/2-1][top.y+sz/2] = indexMapping.size()-1;
+      g[top.x+sz/2-1][top.y+sz/2] = indexMapping.size()+1;
       newTrom[1] = new Coord(top.x+sz/2,top.y+sz/2-1);
-      g[top.x+sz/2][top.y+sz/2-1] = indexMapping.size()-1;
+      g[top.x+sz/2][top.y+sz/2-1] = indexMapping.size()+1;
       newTrom[2] = new Coord(top.x+sz/2-1,top.y+sz/2-1);
-      g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()-1;
-      indexMapping.put(indexMapping.size()+1, new Tromino(newTrom));
+      g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()+1;
+      indexMapping.put(indexMapping.size()+1;, new Tromino(newTrom));
       
       rec(g, sz/2, new Coord(top.x+sz/2, top.y));
       rec(g, sz/2, new Coord(top.x, top.y+sz/2));
@@ -159,19 +162,23 @@ void rec(int[][] g, int sz, Coord top){
   }
 }
 void setup(){
-  int wx = 16; //Grid X -- Modify these for different combinations, power of 2
-  int wy = 16; //Grid Y -- see above
+  int wx = 8; //Grid X -- Modify these for different combinations, power of 2
+  int wy = 8; //Grid Y -- see above
   background(255);
   
-  emptySlot = new Coord(3,4); //Empty slot. Has to be one.
+  emptySlot = new Coord(4,4); //Empty slot. Has to be one.
   
   grid = new int[wx][wy];
-  grid[emptySlot.y][emptySlot.x] = -1; // empty slot ID
+  grid[emptySlot.y][emptySlot.x] = MIN_INT; // empty slot ID
   indexMapping = new HashMap<Integer, Tromino>();
   
   rec(grid, grid.length, new Coord(0,0));
   
   size(wx*squareSize, wy*squareSize);
+  println(complete(grid));
+  println(grid[4][3]);
+  println(grid[3][7]);
+  println(indexMapping.get(grid[3][7]).rgbcolor);
 }
 boolean t = true;
 void draw(){
@@ -179,10 +186,5 @@ void draw(){
   for(int x = 1; x <= indexMapping.size(); x++){
     indexMapping.get(x).draw();
   }
-  if(t){
-    fill(color(0));
-  } else {
-    fill(color(1));
-  } t = !t;
-  rect((float)emptySlot.x*squareSize, (float)emptySlot.y*squareSize, (float)squareSize, (float)squareSize);
+  fill(0);
 }
