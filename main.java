@@ -175,10 +175,6 @@ void setup(){
   rec(grid, grid.length, new Coord(0,0));
   
   size(wx*squareSize, wy*squareSize);
-  println(complete(grid));
-  println(grid[4][3]);
-  println(grid[3][7]);
-  println(indexMapping.get(grid[3][7]).rgbcolor);
 }
 boolean t = true;
 void draw(){
