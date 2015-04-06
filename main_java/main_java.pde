@@ -89,7 +89,7 @@ void rec(int[][] g, int sz, Coord top){
         }
       }
     }
-    indexMapping.put(indexMapping.size()+1;, new Tromino(toAdd));
+    indexMapping.put(indexMapping.size()+1, new Tromino(toAdd));
   } else {
     Coord missing = new Coord(top.x, top.y);
     for(int x= top.x; x < top.x + sz; x++){
@@ -111,7 +111,7 @@ void rec(int[][] g, int sz, Coord top){
       newTrom[2] = new Coord(top.x+sz/2-1,top.y+sz/2);
       g[top.x+sz/2-1][top.y+sz/2] = indexMapping.size()+1;
       
-      indexMapping.put(indexMapping.size()+1;, new Tromino(newTrom));
+      indexMapping.put(indexMapping.size()+1, new Tromino(newTrom));
       
       rec(g, sz/2, new Coord(top.x, top.y+sz/2));
       rec(g, sz/2, new Coord(top.x+sz/2, top.y));
@@ -125,7 +125,7 @@ void rec(int[][] g, int sz, Coord top){
       g[top.x+sz/2][top.y+sz/2] = indexMapping.size()+1;
       newTrom[2] = new Coord(top.x+sz/2-1,top.y+sz/2-1);
       g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()+1;
-      indexMapping.put(indexMapping.size()+1;, new Tromino(newTrom));
+      indexMapping.put(indexMapping.size()+1, new Tromino(newTrom));
       
       rec(g, sz/2, top);
       rec(g, sz/2, new Coord(top.x+sz/2, top.y));
@@ -139,7 +139,7 @@ void rec(int[][] g, int sz, Coord top){
       g[top.x+sz/2][top.y+sz/2] = indexMapping.size()+1;
       newTrom[2] = new Coord(top.x+sz/2-1,top.y+sz/2-1);
       g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()+1;
-      indexMapping.put(indexMapping.size()+1;, new Tromino(newTrom));
+      indexMapping.put(indexMapping.size()+1, new Tromino(newTrom));
       
       rec(g, sz/2, top);
       rec(g, sz/2, new Coord(top.x, top.y+sz/2));
@@ -153,7 +153,7 @@ void rec(int[][] g, int sz, Coord top){
       g[top.x+sz/2][top.y+sz/2-1] = indexMapping.size()+1;
       newTrom[2] = new Coord(top.x+sz/2-1,top.y+sz/2-1);
       g[top.x+sz/2-1][top.y+sz/2-1] = indexMapping.size()+1;
-      indexMapping.put(indexMapping.size()+1;, new Tromino(newTrom));
+      indexMapping.put(indexMapping.size()+1, new Tromino(newTrom));
       
       rec(g, sz/2, new Coord(top.x+sz/2, top.y));
       rec(g, sz/2, new Coord(top.x, top.y+sz/2));
@@ -175,10 +175,6 @@ void setup(){
   rec(grid, grid.length, new Coord(0,0));
   
   size(wx*squareSize, wy*squareSize);
-  println(complete(grid));
-  println(grid[4][3]);
-  println(grid[3][7]);
-  println(indexMapping.get(grid[3][7]).rgbcolor);
 }
 boolean t = true;
 void draw(){
